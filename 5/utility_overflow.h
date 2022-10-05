@@ -1,9 +1,11 @@
+#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 char* html_escape(const char *buf) {
-    size_t nl = 64;
+    size_t nl = 1;
     char* new = malloc(nl);
     size_t np = 0;
 
@@ -27,16 +29,4 @@ char* html_escape(const char *buf) {
     }
 
     return new;
-}
-
-int main() {
-    char buf[512];
-
-    fgets(&buf, sizeof(buf), stdin);
-
-    const char *esc = html_escape(buf);
-    printf("%s\n", esc);
-    free(esc);
-
-    return 0;
 }
